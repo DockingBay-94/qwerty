@@ -8,3 +8,8 @@ button.onclick = function(){
     console.log(message)
     document.write(message)  
 }
+button2.onclick = function(){
+    let message = "it works"
+    console.log(message)
+    document.write(message)  
+}
