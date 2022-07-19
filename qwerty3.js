@@ -1,4 +1,4 @@
-let thingField = document.querySelector(".intro-field")
+let thingField = document.querySelector(".thing-field")
 
 let button = document.querySelector("button")
 
