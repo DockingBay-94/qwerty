@@ -11,7 +11,7 @@ button.onclick = function(){
     document.write(message)  
 }
 otherbutton.onclick = function(){
-    let message = "it works"
+    let message2 = "it works"
     console.log(message2)
     document.write(message2)  
 }
