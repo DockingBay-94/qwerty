@@ -1,11 +1,11 @@
-console.log("Hello world")
+let thingField = document.querySelector(".intro-field")
 
-let introField = document.querySelector(".intro-field")
 let button = document.querySelector("button")
 
 button.onclick = function(){
-    let intro = introField.value
-    let message = "believe you said " + intro
+    let thing = thingField.value
+    let message = "believe you said " + thing
     console.log(message)
     document.write(message)
+    
 }
