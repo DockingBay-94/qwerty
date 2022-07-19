@@ -1,5 +1,7 @@
 let thingField = document.querySelector(".thing-field")
 
+let otherbutton = document.querySelector(".other-button")
+
 let button = document.querySelector("button")
 
 button.onclick = function(){
@@ -8,8 +10,8 @@ button.onclick = function(){
     console.log(message)
     document.write(message)  
 }
-button2.onclick = function(){
+otherbutton.onclick = function(){
     let message = "it works"
-    console.log(message)
-    document.write(message)  
+    console.log(message2)
+    document.write(message2)  
 }
