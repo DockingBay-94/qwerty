@@ -12,10 +12,10 @@ button.onclick = function(){
     let thingWord = thingField.value
     dev1.textContent = "believe you said " + thingWord
 
-    console.log(div.textContent)
+    console.log(dev1.textContent)
 }
 otherbutton.onclick = function(){
     dev2.textContent = "it works"
 
-    console.log(div1.textContent)
+    console.log(dev2.textContent)
 }
