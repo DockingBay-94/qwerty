@@ -5,8 +5,8 @@ let otherbutton = document.querySelector(".other-button")
 let button = document.querySelector("button")
 
 button.onclick = function(){
-    let thing = thingField.value
-    let message = "believe you said " + thing
+    let thingWord = thingField.value
+    let message = "believe you said " + thingWord
     console.log(message)
     document.write(message)  
 }
