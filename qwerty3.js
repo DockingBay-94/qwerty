@@ -2,14 +2,20 @@ let thingField = document.querySelector(".thing-field")
 
 let otherbutton = document.querySelector(".other-button")
 
+let dev1 = document.querySelector("dev1")
+
+let dev2 = document.querySelector("dev2")
+
 let button = document.querySelector("button")
 
 button.onclick = function(){
     let thingWord = thingField.value
-    let message = "believe you said " + thingWord
-    console.log(message)
+    div1.textContent = "believe you said " + thingWord
+
+    console.log(div.textContent)
 }
 otherbutton.onclick = function(){
-    let message2 = "it works"
-    console.log(message2)
+    div2.textContent = "it works"
+
+    console.log(div1.textContent)
 }
