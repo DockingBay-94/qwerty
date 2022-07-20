@@ -10,12 +10,12 @@ let button = document.querySelector("button")
 
 button.onclick = function(){
     let thingWord = thingField.value
-    div1.textContent = "believe you said " + thingWord
+    dev1.textContent = "believe you said " + thingWord
 
     console.log(div.textContent)
 }
 otherbutton.onclick = function(){
-    div2.textContent = "it works"
+    dev2.textContent = "it works"
 
     console.log(div1.textContent)
 }
