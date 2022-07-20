@@ -8,10 +8,8 @@ button.onclick = function(){
     let thingWord = thingField.value
     let message = "believe you said " + thingWord
     console.log(message)
-    document.write(message)  
 }
 otherbutton.onclick = function(){
     let message2 = "it works"
     console.log(message2)
-    document.write(message2)  
 }
