@@ -3,3 +3,6 @@ body {
     background-image:url('e0a479f32fa257948b973b1efb7892fd.gif');
     color: white;
 }
+.red_square {
+    position: absolute;    
+}
