@@ -14,12 +14,15 @@ function set_position_red_square(x, y){
     red_square.style.left = x
     red_square.style.top = y
 }
+function move_position_red_square(x, y){
+    red_square.style.left = parseInt(red_square.style.left) + x
+    red_square.style.top = parseInt(red_square.style.top) + y
+}
 
 button.onclick = function(){
     let thingWord = thingField.value
     message1.textContent = "believe you said " + thingWord
     console.log(message1.textContent)
-    
 }
 
 otherbutton.onclick = function(){
@@ -29,11 +32,31 @@ otherbutton.onclick = function(){
 
 document.onkeydown = function(event){
     switch(event.key){
-         case "q" :
+         case "t" :
             set_position_red_square(100, 100)
+         case "w" :
+            move_position_red_square(0, -10)
+            break
+         case "a" :
+            move_position_red_square(-10, 0)
+            break
+         case "s" :
+            move_position_red_square(0, 10)
+            break
+         case "d" :
+            move_position_red_square(10, 0)
+            break
+         case "x" :
+            move_position_red_square(10, 10)
+            break
+         case "e" :
+            move_position_red_square(10, -10)
+            break
+         case "z" :
+            move_position_red_square(-10, 10)
+            break
+         case "q" :
+            move_position_red_square(-10, -10)
+            break
     }
 }
-
-// document.onkeydown() = function(){
-//     red_square.style.left
-// }
