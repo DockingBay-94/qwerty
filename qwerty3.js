@@ -1,6 +1,6 @@
 let thingField = document.querySelector(".thing-field")
 
-let otherbutton = document.querySelector(".other-button")
+let button2 = document.querySelector(".button-2")
 
 let message1 = document.querySelector(".message1")
 
@@ -25,7 +25,7 @@ button.onclick = function(){
     console.log(message1.textContent)
 }
 
-otherbutton.onclick = function(){
+button2.onclick = function(){
     message2.textContent = "it works"
     console.log(message2.textContent)
 }
