@@ -1,4 +1,6 @@
-let thingField = document.querySelector(".thing-field")
+let input1 = document.querySelector(".input1")
+
+let button1 = document.querySelector(".button-1")
 
 let button2 = document.querySelector(".button-2")
 
@@ -19,8 +21,8 @@ function move_position_red_square(x, y){
     red_square.style.top = parseInt(red_square.style.top) + y
 }
 
-button.onclick = function(){
-    let thingWord = thingField.value
+button1.onclick = function(){
+    let thingWord = input1.value
     message1.textContent = "believe you said " + thingWord
     console.log(message1.textContent)
 }
