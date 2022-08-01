@@ -4,8 +4,10 @@ body {
     color: white;
 }
 .red_square {
-    position: absolute;    
+    position: absolute; 
+    width: 100;   
 }
 .blue_square {
     position: absolute;
+    width: 100;
 }
