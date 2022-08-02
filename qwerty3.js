@@ -21,74 +21,54 @@ function move_position(x, y, element){
    element.style.top = parseInt(element.style.top) + y
 }
 
-button1.onclick = function(){
-    message.textContent = "you are red"
-    console.log(message.textContent)
-    button2.textContent = "DO NOT PRESS"
-    document.onkeydown = function(event){
-    switch(event.key){
-      case "t" :
-         set_position(100, 100, red_square)
-      case "w" :
-         move_position(0, -10, red_square)
-         break
-      case "a" :
-         move_position(-10, 0, red_square)
-         break
-      case "s" :
-         move_position(0, 10, red_square)
-         break
-      case "d" :
-         move_position(10, 0, red_square)
-         break
-      case "x" :
-         move_position(10, 10, red_square)
-         break
-      case "e" :
-         move_position(10, -10, red_square)
-         break
-      case "z" :
-         move_position(-10, 10, red_square)
-         break
-      case "q" :
-         move_position(-10, -10, red_square)
-         break
-      }
-   }
+function chose_and_controll_square(used_button, unused_button, color_message, square){
+   used_button.onclick = function(){
+      message.textContent = color_message
+      console.log(message.textContent)
+      unused_button.textContent = "DO NOT PRESS"
+      document.onkeydown = function(event){
+      switch(event.key){
+        case "t" :
+           set_position(100, 100, square)
+        case "w" :
+           move_position(0, -10, square)
+           break
+        case "a" :
+           move_position(-10, 0, square)
+           break
+        case "s" :
+           move_position(0, 10, square)
+           break
+        case "d" :
+           move_position(10, 0, square)
+           break
+        case "x" :
+           move_position(10, 10, square)
+           break
+        case "e" :
+           move_position(10, -10, square)
+           break
+        case "z" :
+           move_position(-10, 10, square)
+           break
+        case "q" :
+           move_position(-10, -10, square)
+           break
+        }
+     }
+  }
 }
 
-button2.onclick = function(){
-   message.textContent = "you are blue"
-   console.log(message.textContent)
-   button1.textContent = "DO NOT PRESS"
-   document.onkeydown = function(event){
-      switch(event.key){
-         case "t" :
-              set_position(100, 100, blue_square)
-         case "w" :
-              move_position(0, -10, blue_square)
-              break
-         case "a" :
-              move_position(-10, 0, blue_square)
-              break
-         case "s" :
-              move_position(0, 10, blue_square)
-              break
-         case "d" :
-              move_position(10, 0, blue_square)
-              break
-         case "x" :
-              move_position(10, 10, blue_square)
-              break
-         case "e" :
-              move_position(10, -10, blue_square)
-              break
-         case "z" :
-              move_position(-10, 10, blue_square)
-              break
-         case "q" :
-              move_position(-10, -10, blue_square)
-              break
-      }
-   }
-}
+
+
+// holler.onLoad(()=>{
+//    holler.me((user)=>{
+
+
+//    })
+// })
+
+chose_and_controll_square(button1, button2, "you are red", red_square)
+
+chose_and_controll_square(button2, button1, "you are blue", blue_square)
+
