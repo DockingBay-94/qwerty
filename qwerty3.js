@@ -68,7 +68,7 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
 //    })
 // })
 
-chose_and_controll_square(button1, button2, "you are red", red_square)
+choose_and_controll_square(button1, button2, "you are red", red_square)
 
-chose_and_controll_square(button2, button1, "you are blue", blue_square)
+choose_and_controll_square(button2, button1, "you are blue", blue_square)
 
