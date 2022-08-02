@@ -24,6 +24,7 @@ function move_position(x, y, element){
 button1.onclick = function(){
     message.textContent = "you are red"
     console.log(message.textContent)
+    button2.textContent = "DO NOT PRESS"
     document.onkeydown = function(event){
     switch(event.key){
       case "t" :
@@ -59,6 +60,7 @@ button1.onclick = function(){
 button2.onclick = function(){
    message.textContent = "you are blue"
    console.log(message.textContent)
+   button1.textContent = "DO NOT PRESS"
    document.onkeydown = function(event){
       switch(event.key){
          case "t" :
