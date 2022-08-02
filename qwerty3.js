@@ -21,7 +21,7 @@ function move_position(x, y, element){
    element.style.top = parseInt(element.style.top) + y
 }
 
-function chose_and_controll_square(used_button, unused_button, color_message, square){
+function choose_and_controll_square(used_button, unused_button, color_message, square){
    used_button.onclick = function(){
       message.textContent = color_message
       console.log(message.textContent)
