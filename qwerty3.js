@@ -11,14 +11,18 @@ let red_square = document.querySelector(".red_square")
 
 let blue_square = document.querySelector(".blue_square")
 
+const anArray = [0]
+
 function set_position(x, y, element){
    element.style.left = x
    element.style.top = y
+   anArray.push(1)
 }
 
 function move_position(x, y, element){
    element.style.left = parseInt(element.style.left) + x
    element.style.top = parseInt(element.style.top) + y
+   anArray.push([1])
 }
 
 function choose_and_controll_square(used_button, unused_button, color_message, square){
@@ -54,16 +58,24 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
         case "q" :
            move_position(-10, -10, square)
            break
-        }
-     }
-  }
+         }
+      }
+   }
 }
 
 
 
 // holler.onLoad(()=>{
-//    holler.me((user)=>{
+//    holler.me((user)=>{ 
 
+//       holler.onClientEvent(event=>{
+
+//          console.log("event recived: "+ event)
+      
+//       })
+
+
+//       holler.appInstance.notifyClients("hgfhjhfhdhgjfghdfhjhfhdh")
 
 //    })
 // })
