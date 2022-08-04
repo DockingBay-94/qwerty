@@ -15,10 +15,18 @@ function set_position(x, y, element){
    element.style.left = x
    element.style.top = y
 }
-function set_position_red(y, x){
-   red_square.style.top = y
-   red_square.style.left = x
-}
+function set_position_red(x, y){
+      red_square.style.top = y
+      red_square.style.left = x
+      const sendRedSquareLeftAndTop = ()=>{
+         console.log("about to send data")
+            holler.appInstance.notifyClients(JSON.stringify({
+            Y: parseInt(red_square.style.top),
+            X: parseInt(red_square.style.left)
+            }))
+         }
+         sendRedSquareLeftAndTop()
+      }
 
 function move_position(x, y, element){
    element.style.left = parseInt(element.style.left) + x
@@ -60,6 +68,9 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
            break
         case "l" :
            set_position(1, 1, square)
+           break
+        case "p" :
+           set_position_red(50, 50)
          }
       }
    }
@@ -70,23 +81,12 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
 holler.onLoad(()=>{
    holler.me((user)=>{ 
       choose_and_controll_square(button1, button2, "you are red", red_square)
+      choose_and_controll_square(button2, button1, "you are blue", blue_square)
    })   
-
    holler.onClientEvent(event=>{ 
       console.log(event)
       console.log(JSON.parse(event))
-      let incomingArray = JSON.parse(event)
-      set_position_red(incomingArray[0],incomingArray[1])
-   })
-   const sendRedSquareLeftAndTop = ()=>{
-      console.log("about to send data")
-      holler.appInstance.notifyClients(JSON.stringify([
-         parseInt(red_square.style.top),
-         parseInt(red_square.style.left)
-      ]))
-      setTimeout(sendRedSquareLeftAndTop, 100)
-   }
-   sendRedSquareLeftAndTop()
+      let incomingData = JSON.parse(event)
+      set_position_red(incomingData.X, incomingData.Y)
+   })   
 })
-
-choose_and_controll_square(button2, button1, "you are blue", blue_square)
