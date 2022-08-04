@@ -15,22 +15,29 @@ function set_position(x, y, element){
    element.style.left = x
    element.style.top = y
 }
-function set_position_red(x, y){
-      red_square.style.top = y
-      red_square.style.left = x
-      const sendRedSquareLeftAndTop = ()=>{
-         console.log("about to send data")
-            holler.appInstance.notifyClients(JSON.stringify({
-            Y: parseInt(red_square.style.top),
-            X: parseInt(red_square.style.left)
-            }))
-         }
-         sendRedSquareLeftAndTop()
+function send_position(element){
+   let elementName
+      if (element == red_square){
+         elementName = "red_square"
+      }else if(element == blue_square){
+         elementName = "blue_square"
       }
+   holler.appInstance.notifyClients(JSON.stringify({
+      Y: parseInt(element.style.top),
+      X: parseInt(element.style.left),
+      EString: elementName
+   }))
+}
+// function teleport_red(x, y){
+//    red_square.style.top = y
+//    red_square.style.left = x
+//    send_position(red_square)
+// }
 
 function move_position(x, y, element){
    element.style.left = parseInt(element.style.left) + x
    element.style.top = parseInt(element.style.top) + y
+   send_position(element)
 }
 
 function choose_and_controll_square(used_button, unused_button, color_message, square){
@@ -39,38 +46,43 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
       console.log(message.textContent)
       unused_button.textContent = "DO NOT PRESS"
       document.onkeydown = function(event){
-      switch(event.key){
-        case "t" :
-           set_position(100, 100, square)
-        case "w" :
-           move_position(0, -10, square)
-           break
-        case "a" :
-           move_position(-10, 0, square)
-           break
-        case "s" :
-           move_position(0, 10, square)
-           break
-        case "d" :
-           move_position(10, 0, square)
-           break
-        case "x" :
-           move_position(10, 10, square)
-           break
-        case "e" :
-           move_position(10, -10, square)
-           break
-        case "z" :
-           move_position(-10, 10, square)
-           break
-        case "q" :
-           move_position(-10, -10, square)
-           break
-        case "l" :
-           set_position(1, 1, square)
-           break
-        case "p" :
-           set_position_red(50, 50)
+         switch(event.key){
+            case "t" :
+               set_position(100, 100, square)
+               break
+            case "w" :
+               move_position(0, -10, square)
+               break
+            case "a" :
+               move_position(-10, 0, square)
+               break
+            case "s" :
+               move_position(0, 10, square)
+               break
+            case "d" :
+               move_position(10, 0, square)
+               break
+            case "x" :
+               move_position(10, 10, square)
+               break
+            case "e" :
+               move_position(10, -10, square)
+               break
+            case "z" :
+               move_position(-10, 10, square)
+               break
+            case "q" :
+               move_position(-10, -10, square)
+               break
+            case "l" :
+               set_position(1, 1, square)
+               break
+            case "n" :
+               teleport_red(600, 600)
+               break
+            case "m" :
+               teleport_red(50, 50)
+               break
          }
       }
    }
@@ -87,6 +99,10 @@ holler.onLoad(()=>{
       console.log(event)
       console.log(JSON.parse(event))
       let incomingData = JSON.parse(event)
-      set_position_red(incomingData.X, incomingData.Y)
+      if(incomingData.EString == "red_square"){
+         set_position(incomingData.X, incomingData.Y, red_square) 
+      }else if(incomingData.EString == "blue_square"){
+         set_position(incomingData.X, incomingData.Y, blue_square)
+      }
    })   
 })
