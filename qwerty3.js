@@ -3,6 +3,8 @@ let button1 = document.querySelector(".button-1")
 
 let button2 = document.querySelector(".button-2")
 
+let button3 = document.querySelector(".button-3")
+
 let message = document.querySelector(".message")
 
 let button = document.querySelector("button")
@@ -10,6 +12,8 @@ let button = document.querySelector("button")
 let red_square = document.querySelector(".red_square")
 
 let blue_square = document.querySelector(".blue_square")
+
+let green_square = document.querySelector(".green_square")
 
 function set_position(x, y, element){
    element.style.left = x
@@ -21,6 +25,8 @@ function send_position(element){
          elementName = "red_square"
       }else if(element == blue_square){
          elementName = "blue_square"
+      }else if(element == green_square){
+         elementName = "green_square"
       }
    holler.appInstance.notifyClients(JSON.stringify({
       Y: parseInt(element.style.top),
@@ -40,11 +46,12 @@ function move_position(x, y, element){
    send_position(element)
 }
 
-function choose_and_controll_square(used_button, unused_button, color_message, square){
+function choose_and_controll_square(used_button, unused_buttonA, unused_buttonB, color_message, square){
    used_button.onclick = function(){
       message.textContent = color_message
       console.log(message.textContent)
-      unused_button.textContent = "DO NOT PRESS"
+      unused_buttonA.textContent = "DO NOT PRESS"
+      unused_buttonB.textContent = "DO NOT PRESS"
       document.onkeydown = function(event){
          switch(event.key){
             case "t" :
@@ -92,8 +99,9 @@ function choose_and_controll_square(used_button, unused_button, color_message, s
 
 holler.onLoad(()=>{
    holler.me((user)=>{ 
-      choose_and_controll_square(button1, button2, "you are red", red_square)
-      choose_and_controll_square(button2, button1, "you are blue", blue_square)
+      choose_and_controll_square(button1, button2, button3, "you are red", red_square)
+      choose_and_controll_square(button2, button1, button3, "you are blue", blue_square)
+      choose_and_controll_square(button3, button1, button2, "you are green", green_square)
    })   
    holler.onClientEvent(event=>{ 
       console.log(event)
@@ -103,6 +111,8 @@ holler.onLoad(()=>{
          set_position(incomingData.X, incomingData.Y, red_square) 
       }else if(incomingData.EString == "blue_square"){
          set_position(incomingData.X, incomingData.Y, blue_square)
+      }else if(incomingData.EString == "green_square"){
+         set_position(incomingData.X, incomingData.Y, green_square)
       }
    })   
 })
