@@ -69,18 +69,49 @@ function choose_and_controll_square(used_button, color_message, square){
       downButton.textContent = "down"
       rightButton.textContent = "right"
 
-      leftButton.onclick = ()=>{
-         move_position(-10, 0, square)
+      let mouseState = ("up")
+
+      let squareVelocity = (x, y)=>{
+         move_position(x, y, square)
+         if (mouseState == "down"){
+            setTimeout(()=>{squareVelocity(x, y)}, 100)
+         }
       }
-      upButton.onclick = ()=>{
-         move_position(0, -10, square)
+
+      leftButton.onmousedown = ()=>{
+         mouseState = "down"
+         squareVelocity(-10, 0)
       }
-      downButton.onclick = ()=>{
-         move_position(0, 10, square)
+      upButton.onmousedown = ()=>{
+         mouseState = "down"
+         squareVelocity(0, -10)
       }
-      rightButton.onclick = ()=>{
-         move_position(10, 0, square)
+      downButton.onmousedown = ()=>{
+         mouseState = "down"
+         squareVelocity(0, 10)
       }
+      rightButton.onmousedown = ()=>{
+         mouseState = "down"
+         squareVelocity(10, 0)
+      }
+
+      leftButton.onmouseup = ()=>{
+         mouseState = "up"
+         squareVelocity(0, 0)
+      }
+      upButton.onmouseup = ()=>{
+         mouseState = "up"
+         squareVelocity(0, 0)
+      }
+      downButton.onmouseup = ()=>{
+         mouseState = "up"
+         squareVelocity(0, 0)
+      }
+      rightButton.onmouseup = ()=>{
+         mouseState = "up"
+         squareVelocity(0, 0)
+      }
+
       document.onkeydown = function(event){
          switch(event.key){
             case "t" :
