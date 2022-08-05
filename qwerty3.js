@@ -5,6 +5,14 @@ let button2 = document.querySelector(".button-2")
 
 let button3 = document.querySelector(".button-3")
 
+let leftButton = document.querySelector(".left-button")
+
+let upButton = document.querySelector(".up-button")
+
+let downButton = document.querySelector(".down-button")
+
+let rightButton = document.querySelector(".right-button")
+
 let message = document.querySelector(".message")
 
 let button = document.querySelector("button")
@@ -21,13 +29,13 @@ function set_position(x, y, element){
 }
 function send_position(element){
    let elementName
-      if (element == red_square){
-         elementName = "red_square"
-      }else if(element == blue_square){
-         elementName = "blue_square"
-      }else if(element == green_square){
-         elementName = "green_square"
-      }
+   if (element == red_square){
+      elementName = "red_square"
+   }else if(element == blue_square){
+      elementName = "blue_square"
+   }else if(element == green_square){
+      elementName = "green_square"
+   }
    holler.appInstance.notifyClients(JSON.stringify({
       Y: parseInt(element.style.top),
       X: parseInt(element.style.left),
@@ -52,6 +60,18 @@ function choose_and_controll_square(used_button, unused_buttonA, unused_buttonB,
       console.log(message.textContent)
       unused_buttonA.textContent = "DO NOT PRESS"
       unused_buttonB.textContent = "DO NOT PRESS"
+      leftButton.onclick = ()=>{
+         move_position(-10, 0, square)
+      }
+      upButton.onclick = ()=>{
+         move_position(0, -10, square)
+      }
+      downButton.onclick = ()=>{
+         move_position(0, 10, square)
+      }
+      rightButton.onclick = ()=>{
+         move_position(10, 0, square)
+      }
       document.onkeydown = function(event){
          switch(event.key){
             case "t" :
