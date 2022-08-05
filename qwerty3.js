@@ -144,6 +144,15 @@ function choose_and_controll_square(used_button, color_message, square){
             case "l" :
                teleport(1, 1, square)
                break
+            case "1" :
+               teleport(400, 300, square)
+               break
+            case "2" :
+               teleport(400, 440, square)
+               break
+            case "3" :
+               teleport(400, 580, square)
+               break
          }
       }
    }
