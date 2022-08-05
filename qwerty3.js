@@ -84,12 +84,12 @@ function choose_and_controll_square(used_button, unused_buttonA, unused_buttonB,
             case "l" :
                set_position(1, 1, square)
                break
-            case "n" :
-               teleport_red(600, 600)
-               break
-            case "m" :
-               teleport_red(50, 50)
-               break
+            // case "n" :
+            //    teleport_red(600, 600)
+            //    break
+            // case "m" :
+            //    teleport_red(50, 50)
+            //    break
          }
       }
    }
